@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex13</title>
+</head>
+<body>
+    Informe seu salário bruto
+    <input type="text" id="bruto" style="width: 50px;"> <br><br>
+    <button onclick="calcularLiquido()">Ver salário líquido</button> <br><br>
+    <span id="mostrar"></span>
+</body>
+</html>
+
+<script>
+    function calcularLiquido() {
+        var brt = Number(bruto.value);
+        var result = brt - (brt * 0.1) - (brt * 0.2) - (brt * 1/30);
+        mostrar.innerHTML = `<span style="color: rgb(68, 32, 167);">Apesar do seu bruto ser <b style="color: green;">R$ ${Number(bruto.value)}</b>, após os descontos você receberá somente <b style="color: red;">R$ ${result}</b> </span>`
+    }
+
+</script>
+
+

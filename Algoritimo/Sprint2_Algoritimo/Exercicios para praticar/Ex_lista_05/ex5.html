@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex5</title>
+</head>
+<body>
+    <select id="tabuada" onchange="muda
+    rTabuada()">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    <br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    function mudarTabuada() {
+        var valor = tabuada.value
+        mostrar.innerHTML = `
+                            <span>${valor} x 1 = ${valor*1}</span><br>
+                            <span>${valor} x 2 = ${valor*2}</span><br>
+                            <span>${valor} x 3 = ${valor*3}</span><br>
+                            <span>${valor} x 4 = ${valor*4}</span><br>
+                            <span>${valor} x 5 = ${valor*5}</span><br>
+                            <span>${valor} x 6 = ${valor*6}</span><br>
+                            <span>${valor} x 7 = ${valor*7}</span><br>
+                            <span>${valor} x 8 = ${valor*8}</span><br>
+                            <span>${valor} x 9 = ${valor*9}</span><br>
+                            <span>${valor} x 10 = ${valor*10}</span><br>
+                            `
+    }
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex7</title>
+</head>
+<body>
+    Digite o nome da rua/avenida/vila <br>
+    <input type="text" id="ipt_end" placeholder="Digite o nome da rua/avenida/vila" style="width:  300px;"> <br><br>
+    Digite o número da casa onde mora <br>
+    <input type="text" id="ipt_num" placeholder="Número"> <br> <br>
+    <button onclick="end()">Onde eu moro</button> <br> <br>
+    <span id="mostrar_end"></span>
+</body>
+</html>
+    <script>
+        function end() {
+            mostrar_end.innerHTML = 'Seu logradouro é ' + ipt_end.value + '<br> O número do seu logradouro é ' + ipt_num.value;  
+        }
+    </script>

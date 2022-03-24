@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex6</title>
+</head>
+<body>
+    <select id="select_imagem" onchange="mudar()">
+        <option value="imagens/verão.jfif">Verão</option>
+        <option value="imagens/outono.jfif">Outono</option>
+        <option value="imagens/inverno.jfif">Inverno</option>
+        <option value="imagens/primavera.jfif">Primavera</option>
+    </select>
+    <br><br>
+    <img id="imagem" src="" style="width: 200px;">
+</body>
+</html>
+
+<script>
+    function mudar() {
+        var imag = select_imagem.value
+        imagem.src= `${imag}`
+    }
+</script>

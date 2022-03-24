@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    Digite um número para solicitar a tabuada <br><br>
+    <input id="ipt_num" placeholder="digite o número"><br><br>
+    <button onclick="calcular()">Mostrar tabuada</button><br><br>
+    <div id="mostrar"></div>
+</body>
+</html> 
+<script>
+    function calcular() {
+        var numero = Number(ipt_num.value)
+        mostrar.innerHTML = `
+        <span> ${numero} x 1 = ${numero *1}</span><br>
+        <span> ${numero} x 2 = ${numero *2}</span><br>
+        <span> ${numero} x 3 = ${numero *3}</span><br>
+        <span> ${numero} x 4 = ${numero *4}</span><br>
+        <span> ${numero} x 5 = ${numero *5}</span><br>
+        <span> ${numero} x 6 = ${numero *6}</span><br>
+        <span> ${numero} x 7 = ${numero *7}</span><br>
+        <span> ${numero} x 8 = ${numero *8}</span><br>
+        <span> ${numero} x 9 = ${numero *9}</span><br>
+        <span> ${numero} x 10 = ${numero *10}</span><br>
+        
+        `
+    }
+</script>

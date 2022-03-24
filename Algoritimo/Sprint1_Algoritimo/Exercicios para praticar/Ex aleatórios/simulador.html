@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador</title>
+</head>
+<body>
+    Quanto seu estacionamento custa por mês? <br>
+    <input id="ipt_aluguel" type="text" placeholder="Informe o aluguel mensal"> <br>
+    Quantas vagas tem no seu estacionamento? <br>
+    <input id="ipt_vagas" type="text" placeholder="Quantidade de vagas"> <br>
+    Quanto você cobra por hora? <br>
+    <input id="ipt_hora" type="text" placeholder="Valor da hora"> <br>
+    Quantas horas seu estacionamento fica aberto por dia? <br>
+    <input id="ipt_horaFunc" type="text" placeholder="Horas aberto por dia"> <br>
+    <button onclick="calcular()">Fazer o calculo</button>
+    <br><br>
+    <div id="mostrar" style="display: none;"> Quanto você ganharia normalmente R$<b id="result_sem" style="color: red;"></b> já com nosso serviço R$<b id="result_com" style="color: green;"></b> considerando a ocupação em 50% </div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var aluguel = Number(ipt_aluguel.value)/30
+        var vagas = Number(ipt_vagas.value)
+        var precohr = Number(ipt_hora.value)
+        var func = Number(ipt_horaFunc.value)
+        var resultsem = ((vagas * 0.5) * precohr * func - aluguel).toFixed(2)
+        var resultcom = ((vagas * 0.7) * precohr * func - aluguel).toFixed(2)
+        mostrar.style.display = 'block'
+        result_sem.innerHTML = `${resultsem}`
+        result_com.innerHTML = `${resultcom}`
+    }
+</script>

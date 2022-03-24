@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+</head>
+<body>
+    <select id="lista_inicio">
+        <option value="Uma vez...">Uma vez...</option>
+        <option value="Num belo dia...">Num belo dia...</option>
+        <option value="Numa noite chuvosa...">Numa noite chuvosa...</option>
+    </select>
+    <select id="lista_final">
+        <option value=" Um peixe morreu afogado.">Um peixe morreu afogado</option>
+        <option value=" Um gato tomou banho.">Um gato tomou banho</option>
+        <option value=" Um corvo se curvou.">Um corvo se curvou</option>
+    </select>
+    <button onclick="mostrar()">Juntar</button>
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        var valor1 = lista_inicio.value
+        var valor2 = lista_final.value
+        alert(`${valor1+valor2}`)
+    }
+</script>

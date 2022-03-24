@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex6</title>
+</head>
+<body>
+    Digite seu nome
+    <input type="text" name="" id="ipt_nome" placeholder="Digite seu nome"> <br><br>
+    Quantas aulas você tem totais no curso
+    <input type="text" name="" id="ipt_aula" placeholder="Quantidade de aulas totais"> <br><br>
+    Informe suas faltas
+    <input type="text" name="" id="ipt_faltas" placeholder="Quantidade de faltas"> <br><br>
+    <button onclick="calcular()">Calcular Frequência</button> <br>
+    <div id="mostrar"></div>
+    <br><br>
+    <div id="barra" style="height: 20px; background-color: darkred; display: none;"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var nome = ipt_nome.value
+        var aulas = Number(ipt_aula.value)
+        var faltas = Number(ipt_faltas.value)
+        var resultado = (((aulas - faltas)/aulas)*100).toFixed(0)
+        mostrar.innerHTML = `<span style="color: blue;">Olá, ${nome}, sua frequência foi de: <b style="color: green;">${resultado}%</b></span>`
+        barra.style.width = `${resultado}%`
+        barra.style.display = 'block'
+    }
+
+</script>
+

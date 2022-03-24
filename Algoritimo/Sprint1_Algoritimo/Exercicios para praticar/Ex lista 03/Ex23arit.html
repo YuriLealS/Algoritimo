@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex23</title>
+</head>
+<body>
+    <div>
+        <button onclick="eminem()"><img src="Imagens/eminem.jpg" alt="Foto do cantor Eminem" style="width: 200px; height: 200; float: left;"></button> 
+        Votos: <b id="eminemvoto"></b>
+    </div>
+    <br>
+    <div>
+       <button onclick="djonga()"><img src="Imagens/djonga.jpg" alt="Foto do cantor Djonga" style="width: 200px; float: left;"></button>
+        Votos: <b id="djongavoto"></b>
+    </div>
+    <br>
+    Total de votos: <b id="total"></b>
+</body>
+</html>
+
+<script>
+    var vteminem = 0
+    var vtdjonga = 0
+    var tt = 0
+    function eminem() {
+       vteminem++
+       tt++
+       eminemvoto.innerHTML = `${vteminem}`
+       total.innerHTML = `${tt}`
+    }
+    function djonga() {
+       vtdjonga++
+       tt++
+       djongavoto.innerHTML = `${vtdjonga}`
+       total.innerHTML = `${tt}`
+    }
+</script>

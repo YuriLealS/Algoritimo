@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex14</title>
+</head>
+<body>
+    Escolha o sabor da pizza <br><br>
+    <select id="sel_sabor" autofocus>
+        <option value="">Sabores</option>
+        <option value="23">Muçarela</option>
+        <option value="24">Calabresa</option>
+        <option value="26">Atum</option>
+        <option value="30">Portuguesa</option>
+    </select><br><br>
+    
+    <select  id="sel_comp1">
+        <option value="0.00">Nenhum</option>
+        <option value="2">Queijo</option>
+        <option value="2.5">Presunto</option>
+        <option value="1.5">Ovo</option>
+        <option value="4">Palmito</option>
+        <option value="3.5">Frango</option>
+        <option value="3">Catupiry</option>
+    </select><br><br>
+
+    <select  id="sel_comp2">
+        <option value="0.00">Nenhum</option>
+        <option value="2">Queijo</option>
+        <option value="2.5">Presunto</option>
+        <option value="1.5">Ovo</option>
+        <option value="4">Palmito</option>
+        <option value="3.5">Frango</option>
+        <option value="3">Catupiry</option>
+    </select><br><br>
+
+    <select  id="sel_comp3">
+        <option value="0.00">Nenhum</option>
+        <option value="2">Queijo</option>
+        <option value="2.5">Presunto</option>
+        <option value="1.5">Ovo</option>
+        <option value="4">Palmito</option>
+        <option value="3.5">Frango</option>
+        <option value="3">Catupiry</option>
+    </select><br><br>
+    <button onclick="calcular()">Calcular preço da Pizza</button><br><br>
+    <span id="texto" style="display: none;">A pizza era R$ <b id="valor_inicial">0,00</b>, mas foi acrescido R$ <i id="comp1">0,00</i>,  R$ <i id="comp2">0,00</i> e R$ <i id="comp3">0,00</i>. Custará um total de <u>R$</u> <u id="final" style="color: red;">0,00</u>.</span>
+
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var precoPizza = Number (sel_sabor.value)
+        var compl1 = Number (sel_comp1.value)
+        var compl2 = Number(sel_comp2.value)
+        var compl3 = Number (sel_comp3.value)
+        var precoFinal = precoPizza + compl1 + compl2 + compl3
+
+        valor_inicial.innerHTML = `${(precoPizza).toFixed(2)}`
+        comp1.innerHTML = `${(compl1).toFixed(2)}`
+        comp2.innerHTML = `${(compl2).toFixed(2)}`
+        comp3.innerHTML = `${(compl3).toFixed(2)}`
+        final.innerHTML = `${(precoFinal).toFixed(2)}`
+        texto.style.display = 'block'
+    }
+</script>

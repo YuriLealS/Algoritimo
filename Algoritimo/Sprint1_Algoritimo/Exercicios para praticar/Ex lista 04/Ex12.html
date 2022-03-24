@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex12</title>
+</head>
+<body>
+    Quantas horas de sono você dormiu?
+    <input type="text" id="ipt_hr" placeholder="Horas de sono dormidas"> <br><br>
+    <button onclick="calcular()">Calcular sono</button> <br><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var hr = Number(ipt_hr.value)
+        var fase1 = (hr * 0.05).toFixed(1)
+        var fase2 = (hr * 0.45).toFixed(1)
+        var fase3 = (hr * 0.3).toFixed(1)
+        var fase4 = (hr * 0.2).toFixed(1)
+        mostrar.innerHTML = `Ao dormir ${hr} você dormiu: <br>
+        ${fase1} horas da <b>fase 1</b> <br>
+        ${fase2} horas da <b>fase 2</b> <br>
+        ${fase3} horas da <b>fase 3</b> <br>
+        ${fase4} horas da <b>fase 4</b> <br> `
+    }
+</script>

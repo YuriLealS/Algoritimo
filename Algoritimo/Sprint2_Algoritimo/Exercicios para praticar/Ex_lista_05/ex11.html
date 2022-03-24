@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex11</title>
+</head>
+<body>
+    selecione a moeda depositada <br>
+    <select id="sel_moedas">
+        <option value="0.05">5 centavos</option>
+        <option value="0.10">10 centavos</option>
+        <option value="0.25">25 centavos</option>
+        <option value="0.50">50 centavos</option>
+        <option value="1">1 real</option>
+    </select>
+    <br> <br>
+    <div>O saldo do cofrinho é de: R$ <b id="valor_total">0</b></div> <br>
+    <div>A quantidade de operações foi: <b id="qtd_dep">0</b></div> <br>
+    <div>A média dos depósitos foi: R$ <b id="media_dep">0</b></div> <br>
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="zerar()">Gastar a grana</button>
+</body>
+</html>
+
+<script>
+    var total = 0
+    var qtd = 0
+    var media = total / qtd
+    function depositar() {
+        var moedas = Number(sel_moedas.value)
+        total = total + moedas
+        qtd++
+        valor_total.innerHTML = `${total.toFixed(2)}`
+        qtd_dep.innerHTML = `${qtd}`
+        media_dep.innerHTML = `${(total/qtd).toFixed(2)}`
+    }
+
+    function zerar() {
+        total = 0
+        qtd = 0
+        media = 0
+        valor_total.innerHTML = `${total}`
+        qtd_dep.innerHTML = `${qtd}`
+        media_dep.innerHTML = `${media}`
+    }
+</script>

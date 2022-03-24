@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex7</title>
+</head>
+<body>
+    <select id="sel_time" onchange="mudar()">
+        <option value="imagens/sp.png">São Paulo</option>
+        <option value="imagens/cor.png">Corinthians</option>
+        <option value="imagens/pal.png">Palmeiras</option>
+        <option value="imagens/san.png">Santos</option>
+    </select>
+    <br><br>
+    <img src="" id="imagem" style="width: 300px;">
+</body>
+</html>
+
+<script>
+    function mudar() {
+        var escudo = sel_time.value
+        imagem.src = `${escudo}`
+    }
+</script>

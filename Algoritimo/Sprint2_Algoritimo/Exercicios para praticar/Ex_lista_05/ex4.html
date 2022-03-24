@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+</head>
+<body>
+    <select id="lista_oracao">
+        <option value="que eu leve o amor">Onde houver ódio</option>
+        <option value="que eu leve o perdão">Onde houver ofensa</option>
+        <option value="que eu leve união">Onde houver discórdia</option>
+        <option value="que eu leve a fé">Onde houver dúvida</option>
+    </select>
+    <button onclick="mostrar()">Completar</button>
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        var ptBoa = lista_oracao.value
+        alert(`${ptBoa}`)
+    }
+</script>

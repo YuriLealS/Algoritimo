@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex6</title>
+</head>
+<body>
+
+    <input type="text" id="ipt_nota" placeholder="Digite sua nota"> <br><br>
+    <button onclick="bt_vovo()">Opinião da avó</button>
+    <button onclick="bt_mae()">Opinião da mãe</button> <br> <br>
+    <span id="texto"></span>
+
+</body>
+</html>
+
+<script>
+    function bt_vovo() {
+        texto.innerHTML = 'Muito bem, que neto inteligente, porque tirou nota ' + ipt_nota.value + '<br> <img src="https://www.ideiademarketing.com.br/wp-content/uploads/2014/06/vovo-marketing3.jpg" alt="foto_vovo" style="width:400px;">';
+        ipt_nota.value = '';
+    }
+    function bt_mae() {
+        texto.innerHTML = 'Não fez mais que tua obrigação com essa nota ' + ipt_nota.value + '<br> <img src="http://3.bp.blogspot.com/-Rs5RupgwiIs/U4kaci6cGTI/AAAAAAAAKvk/IrZX3cvzMVU/s1600/M%C3%A3e+trabalhando_+Na+mira+da+mam%C3%A3e!.png" alt="foto_mae" style="width: 300px;">';
+        ipt_nota.value = '';
+    }
+</script>
+

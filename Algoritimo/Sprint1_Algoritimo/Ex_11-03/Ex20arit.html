@@ -1,0 +1,40 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ex20</title>
+    </head>
+    <body>
+        Informe seu salário
+        <input type="text" id="ipt_sal"> <br><br>
+        <button onclick="aparecer()">Confirmar salário</button>
+        <button onclick="pagar100()">Pagar conta de R$100</button>
+        <button onclick="pagar500()">Pagar conta de R$500</button>
+        <button onclick="ganhar2000()">Ganhar R$2000 na loteria</button>
+        <div id="mostrar"></div>
+    </body>
+    </html>
+    <script>
+
+       var salario = 0
+        
+        function aparecer() {
+            var salarioadd = Number(ipt_sal.value)
+            salario = salario + salarioadd
+            mostrar.innerHTML =  `Grana atual: R$${salario}`
+        }
+        function pagar100() {
+            salario = salario - 100
+            mostrar.innerHTML = `Grana atual: R$${salario}`
+        }
+        function pagar500() {
+            salario = salario - 500
+            mostrar.innerHTML = `Grana atual: R$${salario}`
+        }
+        function ganhar2000() {
+            salario = salario + 2000
+            mostrar.innerHTML = `Grana atual: R$${salario}`
+        }
+    </script>

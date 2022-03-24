@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triatleta</title>
+</head>
+<body>
+ <h1>O que faz um triatleta?</h1>
+ <button onclick="nada()">Nada</button>
+ <button onclick="corre()">Corre</button>
+ <button onclick="pedala()">Pedala</button>
+ <br><br>
+    <span id="ft"></span>
+</body>
+</html>
+
+<script>
+
+    function nada() {
+        ft.innerHTML = '<img src="imagens/nada.jpg" alt="atleta nadando" style="width: 350px;">';      
+    }
+    function corre() {
+        ft.innerHTML = '<img src="imagens/corre.jpg" alt="atleta correndo" style="width:350px;">';
+    }
+    function pedala() {
+        ft.innerHTML =  '<img src="imagens/pedala.jpg" alt="atleta pedalando" style="width: 350px;">';
+    }
+    
+</script>
+
