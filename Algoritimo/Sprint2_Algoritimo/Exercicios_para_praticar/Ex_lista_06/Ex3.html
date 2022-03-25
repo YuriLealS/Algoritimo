@@ -22,8 +22,9 @@
         var dois = Number(nota2.value)
         var tres = Number(nota3.value)
         var md = (um + dois + tres) / 3
-        if (md ) {
-            
+        mostrar.innerHTML = `Sua média foi de ${(md).toFixed(1)}`
+        if (md > 9.4) {
+            mostrar.innerHTML = `Sua média foi de ${(md).toFixed(1)}. Parabéns, você é fora de série!`
         }
     }
 </script>

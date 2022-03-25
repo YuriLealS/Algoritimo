@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex5</title>
+</head>
+<body>
+    <!-- Na cidade Paulopolis a luz custa R$ 0,85 por kWh. Criar um programa que:
+    a) Solicite a quantidade de kWh consumida por dia.
+    b) Ao clicar em "calcular conta de luz", calcule o valor da conta no mês (considere mês com 30 dias)
+    c) Dê um desconto de 10% somente se a quantidade mensal for menor que 100 kWh
+    d) Exiba um alerta com o valor da conta a ser paga -->
+    
+Informe a quantidade de kWh/dia
+    <input type="text" id="ipt_kwh" placeholder="kWh/dia"><br><br>
+    <button onclick="calcular()">Calcular conta de luz</button>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var kwh = Number(ipt_kwh.value)
+        var preco = 0.85
+        var mes = 30
+        var desconto = 0.9
+        var conta = (kwh * preco * mes)
+        if (conta < 100) {
+            alert (`o valor da conta vai ser de: ${(conta * desconto).toFixed(2)}`)
+        }
+        if (conta > 100) {
+            alert (`o valor da conta vai ser de: ${(conta).toFixed(2)}`)
+        }
+    }
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+</head>
+<body>
+    <!-- Um grupo de amigos costuma (ou costumava, antes do Covid19) a se reunir a casa de um deles para pedir e comer pizza. Só que eles tinham um trato de que o valor da pizza, quando dividido entre os amigos, não passe de 20,00 por amigo. Ajude eles criando um programa o qual:
+    a) Pergunte o valor da pizza
+    b) Pergunte a quantidade de amigos reunidos
+    c) Ao clicar em "Rola a pizza?", calcule e exiba o valor que cada amigo vai pagar na pizza com uma frase na página como esta "Cada amigo vai pagar R$X pela pizza"
+    d) Somente caso o valor por amigo passe de R$20,00, exiba também a frase "Deu ruim! Pizza muito cara!"
+
+    4A. Refaça a questão anterior de tal forma que a frase do item d) apareça na cor de letra azul e em itálico e negrito. -->
+    
+    Informe o valor da pizza:
+    <input type="text" id="ipt_valPizza" placeholder="Valor da pizza"> <br><br>
+    Quantos amigos?
+    <input type="text" id="ipt_amigos" placeholder="Amigos"> <br><br>
+    <button onclick="calcular()">Rola a pizza?</button> <br><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var pizza = Number(ipt_valPizza.value)
+        var amg = Number(ipt_amigos.value)
+        var valor = pizza/amg
+        if (valor <= 20) {
+            mostrar.innerHTML = `Cada amigo vai pagar R$ ${(valor).toFixed(2)} pela pizza`
+        }
+        if (valor > 20) {
+            mostrar.innerHTML = `<b style="color:blue;"><i>Cada amigo vai pagar R$ ${(valor).toFixed(2)} pela pizza. Deu ruim! Pizza muito cara!</b></i>`
+        }
+    }
+</script>

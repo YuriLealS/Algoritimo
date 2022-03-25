@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex7</title>
+</head>
+<body>
+    <!-- Criar um programa que auxilie o Banco Itado a identificar quem entrou no cheque especial.
+    a) Solicite o saldo da conta
+    b) Solicite o valor do débito (ou seja, valor a tirar da conta)
+    c) Ao clicar em "Analisar conta", calcule o novo saldo da conta e exiba a mensagem "o saldo atual da conta corrente é xx.xx". Esta frase deverá estar em negrito e em vermelho somente se o saldo for menor que zero. -->
+
+    Informe seu saldo:
+    <input type="text" id="ipt_saldo" placeholder="Saldo"> <br><br>
+    Informe quando você quer debitar da sua conta:
+    <input type="text" id="ipt_deb" placeholder="Débito"> <br><br>
+    <button onclick="tirar()">Analisar conta</button> <br><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    function tirar() {
+        var saldo = Number(ipt_saldo.value)
+        var deb = Number(ipt_deb.value)
+        var total = saldo - deb
+
+        if (total >= 0) {
+            mostrar.innerHTML = `O saldo atual da conta corrente é R$${total.toFixed(2)}`
+        }
+        if (total < 0) {
+            mostrar.innerHTML = `<b style="color:red;">O saldo atual da conta corrente é R$ ${total.toFixed(2)}</b>`
+        }
+    }
+</script>
