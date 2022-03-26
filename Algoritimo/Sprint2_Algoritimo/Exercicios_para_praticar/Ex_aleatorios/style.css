@@ -1,0 +1,63 @@
+body {
+    margin-top: 60px;
+    background-image: url(https://c.tenor.com/4jDkHe9fEWAAAAAC/background.gif);
+}
+h1 {
+    color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 1px 2px 4px blue;
+}
+h3 {
+    color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 1px 2px 4px red;
+}
+b {
+    color: white;
+    text-align: center;
+}
+div {
+    color: white;
+    text-align: center;
+    display: none;
+}
+h4 {
+    color: white;
+}
+
+span {
+    text-align: center;
+    background-color: blue;
+}
+.num {
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+}
+.botao {
+    text-align: center;
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+}
+button{
+    border: solid 1px white;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 10px 0px;
+    text-shadow: 2px 1px 2px blue;
+    color: white;
+    background-color:rgba(0, 0, 0, 0);
+}
+.ipt{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:rgba(0, 0, 0, 0);
+    border-radius: 0px 10px;
+    border: white;
+    color: white;
+    width: 150px;
+}
+#cima {
+    display: block;
+}
+#titu{
+    width:100%;
+}
