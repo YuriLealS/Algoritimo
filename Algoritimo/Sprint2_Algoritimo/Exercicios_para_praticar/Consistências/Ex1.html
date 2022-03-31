@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+</head>
+
+<body>
+    <select id="sel_lugar">
+        <option value="selecionar">--Selecionar--</option>
+        <option value="Imagens/capital.jpg">SP – Capital</option>
+        <option value="Imagens/interior.png">SP – Interior</option>
+        <option value="Imagens/salvador.jpg">Outros Estados</option>
+    </select>
+
+    <button onclick="mostrar()">Falar do Local</button><br><br>
+
+    <div id="mostrarc" style="display: none;">
+        <img src="" alt="Capital de São Paulo" id="sp" style="width: 500px;"><br>
+        <b> Os nascidos nesta cidade são Paulistanos</b>
+    </div>
+
+    <div id="mostrari" style="display: none;">
+        <img src="" alt="Interior de São Paulo" id="inte" style="width: 500px;"><br>
+        <b>Os nascidos neste estado são Paulistas</b>
+    </div>
+
+    <div id="mostrarb" style="display: none;">
+        <img src="" alt="Fora de São Paulo" id="ba" style="width: 500px;"><br>
+        <b>Os nascidos neste lugar não são Paulistanos e nem Paulistas</b> 
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function mostrar() {
+        var lugar = sel_lugar.value
+        if (lugar == "Imagens/capital.jpg") {
+            sp.src = `${lugar}`
+            mostrarc.style.display = 'block'
+            mostrari.style.display = 'none'
+            mostrarb.style.display = 'none'
+        } else {
+            if (lugar == "Imagens/interior.png") {
+                inte.src = `${lugar}`
+                mostrarc.style.display = 'none'
+                mostrari.style.display = 'block'
+                mostrarb.style.display = 'none'
+            } else {
+                if (lugar == "Imagens/salvador.jpg") {
+                    ba.src = `${lugar}`
+                    mostrarc.style.display = 'none'
+                    mostrari.style.display = 'none'
+                    mostrarb.style.display = 'block'
+                } else {
+                    alert('Favor escolher uma opção')
+                    mostrarc.style.display = 'none'
+                    mostrari.style.display = 'none'
+                    mostrarb.style.display = 'none'
+                }
+            }
+        }
+    }
+</script>

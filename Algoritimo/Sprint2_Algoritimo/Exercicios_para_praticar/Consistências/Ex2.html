@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    Insira seu nome: <input type="text" id="ipt_nome"><br><br>
+    Insira sua idade: <input type="text" id="ipt_idade"><br><br>
+    <button onclick="cadastrar()">Cadastrar</button> <br><br>
+    <div id="mostrar" style="display: none;"></div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        var nome = ipt_nome.value
+        var idade = Number(ipt_idade.value)
+
+        if (nome=="") {
+            mostrar.style.display = 'none'
+            alert('Nome inválido')
+        }else{
+            if (idade == "") {
+                mostrar.style.display = 'none'
+                alert('Idade inválida')
+            }else{
+                if (idade < 0) {
+                    mostrar.style.display = 'none'
+                    alert('Idade inválida')
+                }else{
+                    if (idade >80) {
+                        mostrar.style.display = 'none'
+                        alert('Procurar escola especial')
+                    } else{
+                        if (idade < 18) {
+                            mostrar.style.display = 'block'
+                            mostrar.innerHTML = `Este aluno tem que aguardar ${18 - idade} anos para tirar a CNH`
+                        }else{
+                            if (idade >=18) {
+                                mostrar.style.display = 'block'
+                                mostrar.innerHTML = `<b>${nome} Cadastrado!</b>`
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
