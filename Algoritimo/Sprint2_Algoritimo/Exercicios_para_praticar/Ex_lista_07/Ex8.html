@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex8</title>
+</head>
+<body>
+    <!-- a) Solicite a quantidade de homens e mulheres num elevador
+b) Ao clicar num botão "Ligar elevador", calcule o peso total no elevador, considerando que um homem pesa em média 90kg e uma mulher 70kg
+c) Caso o peso seja menor que 500, exiba uma frase na cor verde abaixo do botão com a frase Elevador vai se mover, pois está com X kg
+d) Caso o peso seja a partir de 500, exiba uma frase na cor vermelha abaixo do botão com a frase Alguém precisa descer. Precisa perder X kg para mover o elevador -->
+Informe a quantidade de mulheres no elevador:
+<input type="text" id="ipt_m" placeholder="Quantidade"><br>
+Informe a quantidade de homens no elevador:
+<input type="text" id="ipt_h" placeholder="Quantidade"><br>
+<button onclick="ligar()">Ligar elevador</button>
+<div id="mostrar" style="color: green; display: none;">O elevador vai se mover, pois está com <span id="peso"></span> kg</div>
+<div id="mostrarnaomover" style="color: red; display: none;">Alguém precisa descer. Precisa perder <span id="descer"></span> kg para mover o elevador</div>
+</body>
+</html>
+
+<script>
+    function ligar() {
+        var m = Number(ipt_m.value)
+        var h = Number(ipt_h.value)
+        var mulher = m * 70
+        var homem = h * 90
+        var total = mulher + homem
+
+        if (total<500) {
+            mostrar.style.display = 'block'
+            mostrarnaomover.style.display = `none`
+            peso.innerHTML = `${total}`
+        }else {
+            mostrar.style.display = 'none'
+            mostrarnaomover.style.display = `block`
+            descer.innerHTML = `${total-500}`
+        }
+    }
+</script>
