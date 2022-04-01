@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex20</title>
+</head>
+<body>
+    Tipo:
+    <select id="sel_tipo">
+        <option value="">Selecionar</option>
+        <option value="1">Queijo</option>
+        <option value="3">Cereal</option>
+    </select> <br>
+    Área:
+    <select id="sel_area">
+        <option value="">Selecionar</option>
+        <option value="4">Seca</option>
+        <option value="5">Refrigerada</option>
+    </select>
+    <br><br>
+    <button onclick="atribuirTipo()">Atribuir Tipo</button>
+    <button onclick="atribuirArea()">Atribuir Área</button>
+    <button onclick="queijo()">Queijo</button>
+    <button onclick="cereal()">Cereal</button>
+</body>
+</html>
+    <script>
+        var tipo = 0
+        var area = 0
+        var somando = 0
+        function atribuirTipo() {
+            var atribuicao = sel_tipo.value
+            tipo = tipo + atribuicao
+            if (tipo == '011') {
+                alert("Clique apenas 1 vez no botão! Atribuição de tipo zerada")
+                tipo = 0
+            }
+            if (tipo == '013') {
+                alert("Clique apenas 1 vez no botão! Atribuição de tipo zerada")
+                tipo = 0 
+            }
+            if (tipo == '033') {
+                alert("Clique apenas 1 vez no botão! Atribuição de tipo zerada")
+                tipo = 0 
+            }
+            if (tipo == '031') {
+                alert("Clique apenas 1 vez no botão! Atribuição de tipo zerada")
+                tipo = 0 
+            }
+          }
+          function atribuirArea() {
+              var atribuicaoarea = sel_area.value
+              area = area + atribuicaoarea
+              if (area == '044') {
+                alert("Clique apenas 1 vez no botão! Atribuição de área zerada")
+                area = 0
+              }
+              if (area == '045') {
+                alert("Clique apenas 1 vez no botão! Atribuição de área zerada")
+                area = 0
+              }
+              if (area == '055') {
+                alert("Clique apenas 1 vez no botão! Atribuição de área zerada")
+                area = 0
+              }
+              if (area == '054') {
+                alert("Clique apenas 1 vez no botão! Atribuição de área zerada")
+                area = 0
+              }
+          }
+          function queijo() {
+              somando = area + tipo
+              if (somando == '001') {
+                  alert("Selecione 1 área")
+              }
+              if (somando == '003') {
+                  alert("Seu tipo não é Queijo!! Atribuição zerada")
+                  tipo = 0
+                  somando = 0
+                  area = 0
+              }
+              if (somando == '00') {
+                  alert("Selecione 1 tipo e 1 área")
+              }
+              if (somando == '050') {
+                  alert("Selecione 1 tipo")
+              }
+              if (somando == '040') {
+                  alert("Selecione 1 tipo")
+              }
+              if (somando == '0401') {
+                  alert("Ponha o queijo na geladeira! Atribuições zeradas")
+                  somando = 0
+                  tipo = 0
+                  area = 0
+              }
+              if (somando == '0501') {
+                  alert("Muito bem, queijos no lugar certo! Atribuições zeradas")
+                  somando = 0
+                  tipo = 0
+                  area = 0
+              }
+          }
+          function cereal() {
+            somando = area + tipo
+              if (somando == '003') {
+                  alert("Selecione 1 área")
+              }
+              if (somando == '001') {
+                  alert("Seu tipo não é Cereal!! Atribuição zerada")
+                  tipo = 0
+                  somando = 0
+                  area = 0
+              }
+              if (somando == '00') {
+                  alert("Selecione 1 tipo e 1 área")
+              }
+              if (somando == '050') {
+                  alert("Selecione 1 tipo")
+              }
+              if (somando == '040') {
+                  alert("Selecione 1 tipo")
+              }
+              if (somando == '0403') {
+                  alert("Muito bem, cereal no lugar certo! Atribuições zeradas")
+                  somando = 0
+                  tipo = 0
+                  area = 0
+              }
+              if (somando == '0503') {
+                  alert("Tire o cereal da geladeira! Atribuições zeradas")
+                  somando = 0
+                  tipo = 0
+                  area = 0
+              }
+          }
+    </script> 

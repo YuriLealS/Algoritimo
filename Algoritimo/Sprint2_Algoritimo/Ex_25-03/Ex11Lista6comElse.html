@@ -23,15 +23,16 @@
 
 <script>
     function ver() {
-        var saldo = Number(ipt_valConta.value)
+        var saldo = Number (ipt_valConta.value)
         if (saldo ==0) {
             mostrar.innerHTML = `<b>Conta zerada</b>`
-        }
-        if (saldo < 0) {
-            mostrar.innerHTML = `<b style="color: red;">Está devendo!</b>`
-        }
-        if (saldo > 0) {
-            mostrar.innerHTML = `<b style="color:blue;">Saldo positivo!</b>`
-        }
+        }else{
+            if (saldo < 0) {
+                mostrar.innerHTML = `<b style="color: red;">Está devendo!</b>`
+                }else {
+                    mostrar.innerHTML = `<b style="color:blue;">Saldo positivo!</b>`
+                }
+                }
+                
     }
 </script>

@@ -27,7 +27,7 @@
                 mostrar.style.display = 'none'
                 alert('Idade inválida')
             }else{
-                if (idade < 0) {
+                if (idade <= 0) {
                     mostrar.style.display = 'none'
                     alert('Idade inválida')
                 }else{
@@ -37,13 +37,12 @@
                     } else{
                         if (idade < 18) {
                             mostrar.style.display = 'block'
-                            mostrar.innerHTML = `Este aluno tem que aguardar ${18 - idade} anos para tirar a CNH`
-                        }else{
-                            if (idade >=18) {
+                            mostrar.innerHTML = `${nome} tem que aguardar ${18 - idade} ano(s) para tirar a CNH`
+                        }else{  
                                 mostrar.style.display = 'block'
                                 mostrar.innerHTML = `<b>${nome} Cadastrado!</b>`
-                            }
-                        }
+                            
+                        }   
                     }
                 }
             }

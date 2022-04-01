@@ -7,6 +7,24 @@
     <title>Ex3</title>
 </head>
 <body>
-    <input type="text" id="ipt_chocolate">
+    Quantos chocolates você quer comprar?
+    <input type="text" id="ipt_chocolate" autofocus>
+    <button onclick="comprar()">Comprar</button> <br><br>
+    <div id="mostrar"></div>
 </body>
 </html>
+
+<script>
+    function comprar() {
+        var choco = Number(ipt_chocolate.value)
+        if (choco < 0){
+           alert(`Número inválido`)
+        } else {
+            if (choco <=12) {
+            mostrar.innerHTML = `<b>Você vai pagar R$${(choco * 3).toFixed(2)} por ${choco} chocolate(s)</b>`
+        }else{
+            mostrar.innerHTML = `<b>Você vai pagar R$${(choco * 2.5).toFixed(2)} por ${choco} chocolates</b>`
+        }
+        }
+    }
+</script>
