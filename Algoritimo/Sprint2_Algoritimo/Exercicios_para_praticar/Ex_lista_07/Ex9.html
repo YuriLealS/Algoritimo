@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex9</title>
+</head>
+<body>
+    <select id="sel_especie" onchange="btn_especie()">
+        <option value="">- Escolha uma espécie -</option>
+        <option value="ovp">Ovíparos</option>
+        <option value="mam">Mamíferos</option>
+    </select>
+    <br><br>
+    <select id="sel_oviparo" style="display: none;" onchange="btn_ovp()">
+        <option value="">- Escolha um ovíparo -</option>
+        <option value="gal">Galinha</option>
+        <option value="pei">Peixe</option>
+        <option value="tar">Tartaruga</option>
+    </select>
+    <select id="sel_mamifero" style="display: none;" onchange="btn_mam()">
+        <option value="">- Escolha um mamífero -</option>
+        <option value="ele">Elefante</option>
+        <option value="por">Porco</option>
+        <option value="coe">Coelho</option>
+    </select>
+    <br><br>
+    <div id="imagem" style="display: none;"></div>
+    <input type="text" id="ipt_preco" style="display: none;" placeholder="Informe o valor de compra do animal">
+    <br>
+    <button onclick="btn_imposto()" id="imposto" style="display:none;">Calcular imposto</button>
+</body>
+</html>
+
+<script>
+    function btn_especie() {
+        var valorEsp = sel_especie.value
+        if (valorEsp == "ovp") {
+            sel_mamifero.style.display = 'none'
+            sel_oviparo.style.display = 'block'
+        }else{
+            if (valorEsp == "mam") {
+                sel_oviparo.style.display = 'none'
+                sel_mamifero.style.display = 'block'
+            }else{
+                alert('Selecione um campo')
+                sel_oviparo.style.display = 'none'
+                sel_mamifero.style.display = 'none'
+                imagem.style.display = 'none'
+                ipt_preco.style.display ='none'
+            }
+        }
+    }
+    function btn_ovp() {
+        var valorOvp = sel_oviparo.value
+        if (valorOvp == "gal") {
+            imagem.innerHTML = '<img src="Imagens/galinha.jpg"style="width: 300px;">'
+            imagem.style.display = 'block'
+            ipt_preco.style.display ='block'
+        } else {
+            if (valorOvp == "pei") {
+                imagem.innerHTML = '<img src="Imagens/peixe.jpg"style="width: 300px;">'
+                imagem.style.display = 'block'
+                ipt_preco.style.display ='block'
+            } else {
+                if (valorOvp == "tar") {
+                    imagem.innerHTML = '<img src="Imagens/tartaruga.png"style="width: 300px;">'
+                    imagem.style.display = 'block'
+                    ipt_preco.style.display ='block'
+                } else {
+                    alert("Selecione um animal ovíparo")
+                    imagem.style.display = 'none'
+                    ipt_preco.style.display ='none'
+                    ipt_preco.style.display ='none'
+                }
+                
+            }
+            
+        }
+    }
+    function btn_mam() {
+        var valorMam = sel_mamifero.value
+        if (valorMam == "ele") {
+            imagem.innerHTML = '<img src="Imagens/elefante.jpg"style="width: 300px;">'
+            imagem.style.display = 'block'
+            ipt_preco.style.display ='block'
+        } else {
+            if (valorMam == "por") {
+                imagem.innerHTML = '<img src="Imagens/porco.jpeg"style="width: 300px;">'
+                imagem.style.display = 'block'
+                ipt_preco.style.display ='block'
+            } else {
+                if (valorMam == "coe") {
+                    imagem.innerHTML = '<img src="Imagens/coelho.jpg"style="width: 300px;">'
+                    imagem.style.display = 'block'
+                    ipt_preco.style.display ='block'
+                } else {
+                    alert('Selecione um animal mamífero')
+                    imagem.style.display = 'none'
+                    ipt_preco.style.display ='none'
+                }
+            }
+        }
+    }
+</script>
