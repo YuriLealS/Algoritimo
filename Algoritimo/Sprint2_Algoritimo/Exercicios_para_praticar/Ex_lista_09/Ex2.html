@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    <!-- Crie um programa o qual avaliará se uma pessoa tem direito à ajuda do governo na crise do Covid19:
+a) Solicite renda do usuário
+b) Solicite a renda total familiar do usuário
+c) Ao clicar em "Verificar ajuda", exibe um alert com uma dessas mensagens
+   "Você terá direito!", caso a renda do usuário for até 1050 e a renda familiar for até 2100.
+   "Você NÃO terá direito", caso contrário -->
+
+Informe sua renda: <input type="text" id="ipt_renda">
+<br><br>
+Informe sua renda familiar: <input type="text" id="ipt_familiar">
+<br><br>
+<button onclick="ver()">Verificar ajuda</button>
+</body>
+</html>
+
+<script>
+    function ver() {
+        rendaInd = Number(ipt_renda.value)
+        rendaFam = Number(ipt_familiar.value)
+        if (rendaInd <= 1050 && rendaFam <= 2100 ) {
+            alert('Você terá direito!')
+        }else{
+            alert('Você NÃO terá direito')
+        }
+    }
+</script>
