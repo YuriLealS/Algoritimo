@@ -27,9 +27,13 @@
     </select>
     <br><br>
     <div id="imagem" style="display: none;"></div>
-    <input type="text" id="ipt_preco" style="display: none;" placeholder="Informe o valor de compra do animal">
+    <input type="text" id="ipt_preco" style="display: none; width: 300px;" placeholder="Informe o valor de compra do animal">
     <br>
     <button onclick="btn_imposto()" id="imposto" style="display:none;">Calcular imposto</button>
+    <br>
+    <div id="mostrarpreco" style="display:none;"></div>
+    <br>    
+    <button onclick="reset()">Resetar</button>
 </body>
 </html>
 
@@ -49,6 +53,8 @@
                 sel_mamifero.style.display = 'none'
                 imagem.style.display = 'none'
                 ipt_preco.style.display ='none'
+                imposto.style.display = 'none'
+                mostrarpreco.style.display = 'none'
             }
         }
     }
@@ -58,21 +64,25 @@
             imagem.innerHTML = '<img src="Imagens/galinha.jpg"style="width: 300px;">'
             imagem.style.display = 'block'
             ipt_preco.style.display ='block'
+            imposto.style.display = 'block'
         } else {
             if (valorOvp == "pei") {
                 imagem.innerHTML = '<img src="Imagens/peixe.jpg"style="width: 300px;">'
                 imagem.style.display = 'block'
                 ipt_preco.style.display ='block'
+                imposto.style.display = 'block'
             } else {
                 if (valorOvp == "tar") {
                     imagem.innerHTML = '<img src="Imagens/tartaruga.png"style="width: 300px;">'
                     imagem.style.display = 'block'
                     ipt_preco.style.display ='block'
+                    imposto.style.display = 'block'
                 } else {
                     alert("Selecione um animal ovíparo")
                     imagem.style.display = 'none'
                     ipt_preco.style.display ='none'
                     ipt_preco.style.display ='none'
+                    imposto.style.display = 'none'
                 }
                 
             }
@@ -85,22 +95,51 @@
             imagem.innerHTML = '<img src="Imagens/elefante.jpg"style="width: 300px;">'
             imagem.style.display = 'block'
             ipt_preco.style.display ='block'
+            imposto.style.display = 'block'
         } else {
             if (valorMam == "por") {
                 imagem.innerHTML = '<img src="Imagens/porco.jpeg"style="width: 300px;">'
                 imagem.style.display = 'block'
                 ipt_preco.style.display ='block'
+                imposto.style.display = 'block'
             } else {
                 if (valorMam == "coe") {
                     imagem.innerHTML = '<img src="Imagens/coelho.jpg"style="width: 300px;">'
                     imagem.style.display = 'block'
                     ipt_preco.style.display ='block'
+                    imposto.style.display = 'block'
                 } else {
                     alert('Selecione um animal mamífero')
                     imagem.style.display = 'none'
                     ipt_preco.style.display ='none'
+                    imposto.style.display = 'none'
                 }
             }
         }
+    }
+    function btn_imposto() {
+        var preco = Number(ipt_preco.value)
+        var sele = sel_especie.value
+        if (sele == "ovp") {
+            mostrarpreco.innerHTML = `O imposto será de R$${(preco * 0.05).toFixed(2)}`
+            mostrarpreco.style.display = 'block'
+        }else{
+            if (sele == "mam") {
+                mostrarpreco.innerHTML = `O imposto será de R$${(preco * 0.1).toFixed(2)}`
+                mostrarpreco.style.display = 'block'
+
+            } else {
+                alert('Coloque um valor')
+            }
+        }
+    }
+    function reset() {
+        sel_oviparo.style.display = 'none'
+        sel_mamifero.style.display = 'none'
+        imagem.style.display = 'none'
+        ipt_preco.style.display ='none'
+        imposto.style.display = 'none'
+        mostrarpreco.style.display = 'none'
+
     }
 </script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex12</title>
+</head>
+<body>
+    <div>Você já clicou <b id="qtd">0</b> vezes</div>
+    <br><br>
+    <button onclick="adicionar()">Clica neu</button>
+    <br><br>
+    <div id="frase1" style="display: none;">Dedo fraquinho, hein!</div>
+    <div id="frase2" style="display: none;">Dedo bom, mano</div>
+    <div id="frase3" style="display: none;">Gosta de clicar, hein!</div>
+    <div id="frase4" style="display: none;">Eita dedo nervoso!</div>
+
+</body>
+</html>
+
+<script>
+    var clicks = 0
+    function adicionar() {
+        clicks++
+        qtd.innerHTML = `${clicks}`
+        if (clicks > 15) {
+            frase4.style.display = 'block'
+            frase3.style.display = 'none'
+            frase2.style.display = 'none'
+            frase1.style.display = 'none'
+
+        } else {
+            if (clicks >= 11) {
+                frase4.style.display = 'none'
+                frase3.style.display = 'block'
+                frase2.style.display = 'none'
+                frase1.style.display = 'none'
+            } else {
+                if (clicks >=5) {
+                    frase4.style.display = 'none'
+                    frase3.style.display = 'none'
+                    frase2.style.display = 'block'
+                    frase1.style.display = 'none'
+                } else {
+                    if (clicks < 5) {
+                        frase4.style.display = 'none'
+                        frase3.style.display = 'none'
+                        frase2.style.display = 'none'
+                        frase1.style.display = 'block'
+                    }
+                    
+                }
+                
+            }
+            
+        }
+    }
+</script>
