@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+</head>
+<body>
+    <!-- a) Pergunte o modo de pagamento numa combo com as seguintes opções:
+    Dinheiro
+    Cartão de débito
+    Cartão de crédito
+    Boleto
+    b) Ao clicar num botão "Analisar compra", exiba uma dessa mensagens:
+   "Você terá que pagar a vista", somente se o pagamento for dinheiro ou débito
+   "Pagamento poderá ser parcelado", se o pagamento for crédito ou boleto -->
+        <select id="sel_pagamento">
+            <option value="">Modo de pagamento</option>
+            <option value="din">Dinheiro</option>
+            <option value="deb">Cartão de débito</option>
+            <option value="cred">Cartão de crédito</option>
+            <option value="bol">Boleto</option>
+        </select>
+        <br><br>
+        <button onclick="ver()">Analisar compra</button>
+</body>
+</html>
+<script>
+    function ver() {
+       var pag = sel_pagamento.value
+       if (pag == "din" || pag == "deb") {
+           alert(`Você terá que pagar a vista`)
+       } else if (pag == "cred" ||pag == "bol") {
+           alert(`Pagamento poderá ser parcelado`)
+       } else{
+           alert(`Informe uma forma de pagamento`)
+       } 
+    }
+</script>
