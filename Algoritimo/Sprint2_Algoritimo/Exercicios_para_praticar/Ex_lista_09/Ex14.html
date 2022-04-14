@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex14</title>
+</head>
+<body>
+    <div id="div1" style="display: block;">
+        <h1>Informe o intervalo de altura dos pilotos</h1>
+        Informe a altura mínima: <input type="text" id="ipt_min" placeholder="Altura mínima">
+        e a altura máxima: <input type="text" id="ipt_max" placeholder="Altura máxima"> <br><br>
+        <button onclick="atribuirPiloto()">Atribuir Valores</button>
+        <br><br>
+        <h1>Informe o intervalo de altura dos jogadores de Basquete</h1>
+        Informe a altura mínima: <input type="text" id="ipt_minbasq" placeholder="Altura mínima">
+        e a altura máxima: <input type="text" id="ipt_maxbasq" placeholder="Altura máxima"> <br><br>
+        <button onclick="atribuirJogador()">Atribuir Valores</button><br><br>
+        <button onclick="mudar()">Selecionar</button>
+    </div>
+    <div id="div2" style="display: none;">
+        <h1>Processo de seleção de novos atletas</h1>
+        <h2>Critério de Seleção de piloto - altura entre <b id="altMinPi"></b> até <b id="altMaxPi"></b></h2>
+        <h2>Critério de Seleção de Jogador de basquete - altura entre <b id="altMinJo"></b> até <b id="altMaxJo"></b></h2>
+        Informe seu nome: <input type="text" id="ipt_nome" placeholder="Nome"> Informe sua altura: <input type="text" id="ipt_alt" placeholder="Altura">
+        <select id="sel_modalidade">
+            <option value="">~ Selecione ~</option>
+            <option value="pi">Piloto</option>
+            <option value="ba">Basquete</option>
+        </select> <br><br>
+        <button onclick="selecionar()">Ver</button>
+        <br><br>
+        <span id="mostrar"></span> <br><br>
+        <button onclick="voltar()">Voltar</button>
+    </div>
+</body>
+</html>
+<script>
+    var minPiloto = 0;
+    var maxPiloto = 0;
+    var minJogador = 0;
+    var maxJogador = 0;
+
+    function atribuirPiloto() {
+        var minPi = Number(ipt_min.value)
+        var maxPi = Number(ipt_max.value)
+        if (minPi >= 1 && maxPi > minPi) {
+            minPiloto = minPiloto + minPi
+            maxPiloto = maxPiloto + maxPi
+            alert('Atribuição bem sucedida!')
+        } else {
+            alert ('Atribuição negada!')
+        }
+    }
+    function atribuirJogador() {
+        var minJo = Number(ipt_minbasq.value)
+        var maxJo = Number(ipt_maxbasq.value)
+        if (minJo >= 1.5 && maxJo > minJo) {
+            minJogador = minJogador + minJo
+            maxJogador = maxJogador + maxJo
+            alert('Atribuição bem sucedida!')
+        } else {
+            alert ('Atribuição negada!')
+        }
+    }
+    function mudar() {
+        if (minJogador == '' && maxJogador == '' && minPiloto == '' && maxPiloto == '') {
+          alert('Atribua os valores!')
+        } else {
+        div1.style.display = 'none'
+        div2.style.display = 'block'
+        altMinPi.innerHTML = `${minPiloto.toFixed(2)}`
+        altMaxPi.innerHTML = `${maxPiloto.toFixed(2)}`
+        altMinJo.innerHTML = `${minJogador.toFixed(2)}`
+        altMaxJo.innerHTML = `${maxJogador.toFixed(2)}`
+        }
+    }
+    function selecionar() {
+        var mod = sel_modalidade.value
+        var altura = Number(ipt_alt.value).toFixed(2)
+        var nome = ipt_nome.value
+        if (mod == 'pi' && altura >= minPiloto && altura <= maxPiloto) {
+           mostrar.innerHTML += `O candidato ${nome} com altura de ${altura}m participará do processo de seleção de Piloto <br>` 
+        } else if (mod == 'ba' && altura >= minJogador && altura <= maxJogador) {
+           mostrar.innerHTML += (`O candidato ${nome} com altura de ${altura}m participará do processo de seleção de Jogador de Basquete <br>`)
+        } else{
+            mostrar.innerHTML += (`Infelizmente o candidato ${nome} com altura de ${altura}m não atende os requisitos <br>`)
+        }
+    }
+    function voltar() {
+        div1.style.display = 'block'
+        div2.style.display = 'none'
+        minPiloto = 0;
+        maxPiloto = 0;
+        minJogador = 0;
+        maxJogador = 0;
+    }
+</script>
