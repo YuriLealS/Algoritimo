@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex while 2</title>
+</head>
+<body>
+    <p>Entre com o limite inferior:</p> <input type="number" id="ipt_inf">
+    <p>Entre com o limite superior:</p>  <input type="number" id="ipt_sup">
+    <div><button onclick="mostrar()" style="margin-top: 5vh; font-weight: bold; background: linear-gradient(black,blue); color: white;">Mostrar</button></div> <br>
+    <span id="span_msg"></span>
+</body>
+</html>
+<script>
+    function mostrar() {
+        var contador = ipt_inf.value
+        var sup = ipt_sup.value
+        span_msg.innerHTML = ''
+        while (contador <= sup) {
+            span_msg.innerHTML += `${contador} <br>`
+            contador++
+        }
+    }
+</script>
