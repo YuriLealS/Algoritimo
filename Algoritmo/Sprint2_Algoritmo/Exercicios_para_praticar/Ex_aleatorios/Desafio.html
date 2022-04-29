@@ -101,6 +101,8 @@
             var preco = Number(ipt_valor.value)
             var ganho = preco * venda
 
+            validar.style.display = 'none'
+
             if (maxVolume < venda) {
                 maxVolume = venda
             }if (maxValor < ganho) {
