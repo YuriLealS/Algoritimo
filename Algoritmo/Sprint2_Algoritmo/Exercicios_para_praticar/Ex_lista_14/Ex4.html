@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+</head>
+<body>
+    <!-- Crie um programa o qual:
+    a) Ao clicar num botão "S2 Pares"...
+    b) Exiba, debaixo do botão, todos os números pares de 0 a 100, um embaixo do outro -->
+
+    <button onclick="par()">S2 Pares...</button> <br>
+        <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function par() {
+
+        var contador = 0
+        
+        while (contador >= 0 && contador <= 100) {
+            if (contador %2 == 0) {
+                msg.innerHTML += `${contador}<br>`
+            }
+            contador++
+        }
+    }
+</script>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <div id="div_1" style="display: block;">
+
+        Informe quantos morangos foram colhidos: <input type="number" id="ipt_qtdColhido">
+        <button onclick="abrir()">Abrir vendas</button>
+
+    </div>
+
+    <div id="div_2" style="display: none;">
+
+        Informe a quantidade de morangos que foram vendidos: <input type="number" id="ipt_vendido" onchange="vendido()"> <br>
+        Valor da venda de cada morango:  <input type="number" id="ipt_valor" onchange="valor()">
+        <span id="validar" style="font-weight: bold;"></span> <br>
+        <button onclick="registrar()">Registrar Venda</button> <br> <br>
+        <span id="resultado"></span> <br>
+        <button onclick="encerrar()">Encerrar as vendas</button>
+        
+    </div>
+
+    <div id="div_3" style="display: none;">
+        <h4>Venda de morangos</h4>
+        <span id="final"></span> <br>
+        <b id="turno"></b> <br><br>
+        <span id="volume"></span>
+    </div>
+
+</body>
+</html>
+
+<script>
+    qtdMorangos = 0
+    qtdVendas = 0
+    faturado = 0
+    maxValor = 0
+    maxVolume = 0
+
+    function abrir() {
+        var qtd = Number(ipt_qtdColhido.value)
+        
+        if (qtd < 100) {
+            alert('ERRO - Com esse volume de Morangos não dá para abrir as vendas')
+        }else if (qtd > 2000) {
+            alert('AVISO – Tudo isso!!! Verificar se a quantidade está correta')
+        }else{
+            
+            qtdMorangos = qtdMorangos + qtd   
+            div_1.style.display = 'none'
+            div_2.style.display = 'block'
+
+        }
+    }
+
+        function valor() {
+            var qtdVendido = Number(ipt_vendido.value)
+            var preco = Number(ipt_valor.value)
+
+             if (qtdVendido < 20 && preco >= 5 && preco <= 6) {
+                validar.innerHTML = 'Valor OK'
+                validar.style.color = 'green'
+            } else if (qtdVendido >= 20 && qtdVendido <= 40 && preco >= 4.5 && preco <= 5.5){
+                validar.innerHTML = 'Valor OK'
+                validar.style.color = 'green'
+            } else if (qtdVendido > 40 && preco >= 4 && preco <= 5){
+                validar.innerHTML = 'Valor OK'
+                validar.style.color = 'green'
+            } else{
+                validar.innerHTML = 'Valor errado para essa quantidade vendida'
+                validar.style.color = 'red'
+            }
+        }
+
+            function vendido() {
+            var qtdVendido = Number(ipt_vendido.value)
+            var preco = Number(ipt_valor.value)
+
+             if (qtdVendido < 20 && preco >= 5 && preco <= 6) {
+                validar.innerHTML = 'Valor OK'
+                validar.style.color = 'green'
+            } else if (qtdVendido >= 20 && qtdVendido <= 40 && preco >= 4.5 && preco <= 5.5){
+                validar.innerHTML = 'Valor OK'
+                validar.style.color = 'green'
+            } else if (qtdVendido > 40 && preco >= 4 && preco <= 5){
+                validar.innerHTML = 'Valor OK'
+                validar.style.color = 'green'
+            } else{
+                validar.innerHTML = 'Valor errado para essa quantidade vendida'
+                validar.style.color = 'red'
+            }
+        }
+
+        function registrar() {
+            var venda = Number(ipt_vendido.value)
+            var preco = Number(ipt_valor.value)
+            var ganho = preco * venda
+
+            if (maxVolume < venda) {
+                maxVolume = venda
+            }if (maxValor < ganho) {
+                maxValor = ganho
+            }if (venda <= qtdMorangos) {
+                qtdMorangos = qtdMorangos - venda
+                resultado.innerHTML += `Com a venda de ${venda} de caixas de Morango o saldo no restante é de ${qtdMorangos} <br>`
+                qtdVendas = qtdVendas + venda
+                faturado = faturado + ganho
+            }
+            else{
+                alert('Não é possível fazer essa venda pois o saldo é inferior')
+            }
+        }
+
+        function encerrar() {
+            div_3.style.display = 'block'
+            media = faturado/qtdVendas
+            final.innerHTML = `Saldo de produto = ${qtdMorangos} <br>
+                                Volume total vendido = ${qtdVendas} <br>
+                                Valor total das vendas = R$ ${faturado.toFixed(2)} <br>
+                                Valor médio das vendas = R$ ${media.toFixed(2)} <br> `
+            if (media >= 5 || qtdVendas > 1000 && qtdMorangos < 100) {
+                turno.innerHTML = `O turno hoje foi Bom`
+            } else{
+                turno.innerHTML = `O turno hoje foi normal`
+            }
+            
+            volume.innerHTML = `O maior volume vendido foi de: ${maxVolume}
+                    O maior valor de venda foi de R$ ${maxValor}`
+        }
+
+</script>

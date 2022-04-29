@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex6</title>
+</head>
+<body>
+    <!-- Crie um programa o qual:
+    a)Pergunte o nome da pessoa que o usuário mais ama na vida
+    b)Pergunte o quanto o usuário a ama (um número inteiro)
+    c) Ao clicar num botão "Expressar amor", devem aparacer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")
+     1 - Lady Gaga, eu te amo! Sempre lembre disso!
+     2 - Lady Gaga, eu te amo! Sempre lembre disso!
+     3 - Lady Gaga, eu te amo! Sempre lembre disso! -->
+    Digite o nome da pessoa que você mais ama: 
+    <input type="text" id="ipt_nome"> <br>
+    Qual o nível de amor que vc tem por essa pessoa?
+    <input type="number" id="nivel" placeholder="Limite de 100"> <br>
+    <button onclick="exp()">Expressar amor</button><br>
+    <span id="mostrar"></span>
+</body>
+</html>
+
+<script>
+    function exp() {
+        var nome = ipt_nome.value
+        var num = Number(nivel.value)
+        var cont = 1
+
+        while (cont <= num){
+            if (num < 100) {
+                mostrar.innerHTML += `${cont} - ${nome}, eu te amo! Sempre lembre disso!<br>` 
+            }else{
+                alert('O limite é 100!!')
+                cont = 0
+            }
+            cont++
+        }
+        
+    }
+</script>
