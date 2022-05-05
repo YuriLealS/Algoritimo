@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benedito</title>
+</head>
+<body>
+    <div id="div_1" style="display: block;">
+        Informe o intervalo dos números: <br>
+        1º <input type="number" id="ipt_num1" placeholder="Primeiro número">
+        2º <input type="number" id="ipt_num2" placeholder="Segundo número">
+        <button onclick="analisando()">Analisar</button>
+    </div>
+    <div id="div_2" style="display: none;">
+        <span id="mostrar"></span>
+    </div>
+</body>
+</html>
+
+<script>
+    var contagemsoma = contagemsoma > 0
+    var contagem = 0
+    function analisando() {
+        var num1 = Number(ipt_num1.value)
+        var num2 = Number(ipt_num2.value)
+        
+        if (num1 >= num2) {
+            alert('Erro! o segundo número tem que ser maior que o primeiro')
+        }if (num1 <= 0) {
+            alert('Erro! insira um número maior que 0')
+        }if (num1 < num2 && num1 > 0){
+            div_1.style.display = 'none'
+            div_2.style.display = 'block'
+        }
+        while (num1 <= num2) {
+            
+            if (num1 % 2 == 0) {
+                mostrar.innerHTML += `O número <b>${num1}</b> é divisível por 2 `
+                contagemsoma++
+            }if (num1 % 3 == 0) {
+                mostrar.innerHTML += `O número <b>${num1}</b> é divisível por 3 `
+                contagemsoma++
+            }if (num1 % 5 == 0) {
+                mostrar.innerHTML += `O número <b>${num1}</b> é divisível por 5 `
+                contagemsoma++
+            }if (num1 % 7 == 0) {
+                mostrar.innerHTML += `O número <b>${num1}</b> é divisível por 7 `
+                contagemsoma++
+            }if (num1 % 11 == 0) {
+                mostrar.innerHTML += `O número <b>${num1}</b> é divisível por 11 `
+                contagemsoma++
+            }if (num1 % 13 == 0) {
+                mostrar.innerHTML += `O número <b>${num1}</b> é divisível por 13 `
+                contagemsoma++
+            }if (num1 % 2 !== 0 && num1 % 3 !== 0 && num1 % 5 != 0 && num1 % 7 != 0 && num1 % 11 != 0 && num1 % 13 != 0) {
+                mostrar.innerHTML += `O número <b>${num1}</b> não é divisível pelos principais números primos `
+            }if (contagemsoma == true) {
+                contagem++
+                contagemsoma = contagemsoma > 0
+            }
+             num1 = num1 + 1
+             mostrar.innerHTML += '<br>'
+        }
+        
+    }
+</script>
