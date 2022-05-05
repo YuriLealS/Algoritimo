@@ -15,17 +15,19 @@
     </div>
     <div id="div_2" style="display: none;">
         <span id="mostrar"></span>
+        <span id="mostraresult"></span>
     </div>
 </body>
 </html>
 
 <script>
-    var contagemsoma = contagemsoma > 0
     var contagem = 0
+    var contagemnum = 0
     function analisando() {
+        var numeromostrar = Number(ipt_num1.value)
         var num1 = Number(ipt_num1.value)
         var num2 = Number(ipt_num2.value)
-        
+        var contagemsoma = 0
         if (num1 >= num2) {
             alert('Erro! o segundo número tem que ser maior que o primeiro')
         }if (num1 <= 0) {
@@ -56,13 +58,15 @@
                 contagemsoma++
             }if (num1 % 2 !== 0 && num1 % 3 !== 0 && num1 % 5 != 0 && num1 % 7 != 0 && num1 % 11 != 0 && num1 % 13 != 0) {
                 mostrar.innerHTML += `O número <b>${num1}</b> não é divisível pelos principais números primos `
-            }if (contagemsoma == true) {
+            }if (contagemsoma > 0) {
                 contagem++
-                contagemsoma = contagemsoma > 0
+                contagemsoma = 0
             }
              num1 = num1 + 1
+             contagemnum++
              mostrar.innerHTML += '<br>'
         }
+        mostraresult.innerHTML = `O intervalo de ${numeromostrar} a ${num2} tem ${contagemnum} números, sendo que ${contagem} números são divisíveis por algum número primo.`
         
     }
 </script>

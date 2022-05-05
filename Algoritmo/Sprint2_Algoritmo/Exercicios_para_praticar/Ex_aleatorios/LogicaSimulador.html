@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador</title>
+</head>
+
+<body>
+    <div>
+        <h1>Simulador financeiro</h1>
+        Por favor, insira o peso total da carga que irá transportar (em Kg) 
+        <input type="number" id="ipt_totalKg"placeholder="Kg" style="width: 55px;">
+        , a quantidade média de carga perdida (em %)
+        <input type="number" id="ipt_perda" placeholder="%" style="width: 40px;">
+         e o preço do kg da carne (em real) 
+        <input type="number" id="ipt_preco" placeholder="R$" style="width: 50px;">
+        <button onclick="simular()">Fazer simulação</button>
+    </div>
+    <div id="div_resultPerda" style="display: none;">Atualmente você perde em média R$ <b id="totalPerdido"></b></div>
+    <div id="div_1" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>1%</b> suas perdas você ganhará: R$ <b id="valor1"></b> de lucro</div>
+    <div id="div_5" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>5%</b> suas perdas você ganhará: R$ <b id="valor2"></b> de lucro</div>
+    <div id="div_10" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>10%</b> suas perdas você ganhará: R$ <b id="valor3"></b> de lucro</div>
+    <div id="div_15" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>15%</b> suas perdas você ganhará: R$ <b id="valor4"></b> de lucro</div>
+    <div id="div_20" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>20%</b> suas perdas você ganhará: R$ <b id="valor5"></b> de lucro</div>
+    <div id="div_25" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>25%</b> suas perdas você ganhará: R$ <b id="valor6"></b> de lucro</div>
+    <div id="div_30" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>30%</b> suas perdas você ganhará: R$ <b id="valor7"></b> de lucro</div>
+    <div id="div_35" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>35%</b> suas perdas você ganhará: R$ <b id="valor8"></b> de lucro</div>
+    <div id="div_40" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>40%</b> suas perdas você ganhará: R$ <b id="valor9"></b> de lucro</div>
+    <div id="div_45" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>45%</b> suas perdas você ganhará: R$ <b id="valor10"></b> de lucro</div>
+    <div id="div_50" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga reduzir <b>50%</b> suas perdas você ganhará: R$ <b id="valor11"></b> de lucro</div>
+    <div id="div_tudo" style="display: none;">Caso você utilizar os nossos dados de maneira com que consiga <b>zerar</b> suas perdas você ganhará: R$ <b id="valorTotal"></b> de lucro</div>
+</body>
+</html>
+
+<script>
+    function simular() {
+        var kgTotal = ipt_totalKg.value
+        var perda = ipt_perda.value
+        var preco = ipt_preco.value
+        var valor = (((kgTotal * preco) * perda) / 100).toFixed(2)
+        var cinquenta = ((kgTotal * preco) * 0.5).toFixed(2)
+        var quarentaCinco = ((kgTotal * preco) * 0.45).toFixed(2)
+        var quarenta = ((kgTotal * preco) * 0.4).toFixed(2)
+        var trintaCinco = ((kgTotal * preco) * 0.35).toFixed(2)
+        var trinta = ((kgTotal * preco) * 0.3).toFixed(2)
+        var vinteCinco = ((kgTotal * preco) * 0.25).toFixed(2)
+        var vinte = ((kgTotal * preco) * 0.2).toFixed(2)
+        var quinze = ((kgTotal * preco) * 0.15).toFixed(2)
+        var dez = ((kgTotal * preco) * 0.1).toFixed(2)
+        var cinco = ((kgTotal * preco) * 0.05).toFixed(2)
+        var um = ((kgTotal * preco) * 0.01).toFixed(2)
+        var tudo = ((kgTotal * preco)*perda/100).toFixed(2)
+
+
+
+        if (perda >= 100 || perda <= 0 || kgTotal <= 0 || preco <= 0) {
+            alert(' Não é possível fazer a simulação, Confira seus valores!')
+            div_resultPerda.style.display = 'none'
+            div_1.style.display = 'none'
+            div_5.style.display = 'none'
+            div_10.style.display = 'none'
+            div_15.style.display = 'none'
+            div_20.style.display = 'none'
+            div_25.style.display = 'none'
+            div_30.style.display = 'none'
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+            div_tudo.style.display = 'none'
+
+        }else if (perda >= 50) {
+            
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+
+            valor4.innerHTML = `${quinze}`
+            div_15.style.display = 'block'
+
+            valor5.innerHTML = `${vinte}`
+            div_20.style.display = 'block'
+
+            valor6.innerHTML = `${vinteCinco}`
+            div_25.style.display = 'block'
+            
+            valor7.innerHTML = `${trinta}`
+            div_30.style.display = 'block'
+
+            valor8.innerHTML = `${trintaCinco}`
+            div_35.style.display = 'block'
+
+            valor9.innerHTML = `${quarenta}`
+            div_40.style.display = 'block'
+
+            valor10.innerHTML = `${quarentaCinco}`
+            div_45.style.display = 'block'
+
+            valor11.innerHTML = `${cinquenta}`
+            div_50.style.display = 'block'
+            
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+        }else if (perda < 50 && perda > 45) {
+            
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+
+            valor4.innerHTML = `${quinze}`
+            div_15.style.display = 'block'
+
+            valor5.innerHTML = `${vinte}`
+            div_20.style.display = 'block'
+
+            valor6.innerHTML = `${vinteCinco}`
+            div_25.style.display = 'block'
+            
+            valor7.innerHTML = `${trinta}`
+            div_30.style.display = 'block'
+
+            valor8.innerHTML = `${trintaCinco}`
+            div_35.style.display = 'block'
+
+            valor9.innerHTML = `${quarenta}`
+            div_40.style.display = 'block'
+
+            valor10.innerHTML = `${quarentaCinco}`
+            div_45.style.display = 'block'
+            
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_50.style.display = 'none'
+
+        } else if (perda <= 45 && perda > 40) {
+
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+
+            valor4.innerHTML = `${quinze}`
+            div_15.style.display = 'block'
+
+            valor5.innerHTML = `${vinte}`
+            div_20.style.display = 'block'
+
+            valor6.innerHTML = `${vinteCinco}`
+            div_25.style.display = 'block'
+            
+            valor7.innerHTML = `${trinta}`
+            div_30.style.display = 'block'
+
+            valor8.innerHTML = `${trintaCinco}`
+            div_35.style.display = 'block'
+            
+            valor9.innerHTML = `${trintaCinco}`
+            div_40.style.display = 'block'
+
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+
+        }else if (perda <= 40 && perda > 35) {
+
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+
+            valor4.innerHTML = `${quinze}`
+            div_15.style.display = 'block'
+
+            valor5.innerHTML = `${vinte}`
+            div_20.style.display = 'block'
+
+            valor6.innerHTML = `${vinteCinco}`
+            div_25.style.display = 'block'
+            
+            valor7.innerHTML = `${trinta}`
+            div_30.style.display = 'block'
+
+            valor8.innerHTML = `${trintaCinco}`
+            div_35.style.display = 'block'
+
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+
+        } else if (perda <= 35 && perda > 30) {
+
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+
+            valor4.innerHTML = `${quinze}`
+            div_15.style.display = 'block'
+
+            valor5.innerHTML = `${vinte}`
+            div_20.style.display = 'block'
+
+            valor6.innerHTML = `${vinteCinco}`
+            div_25.style.display = 'block'
+            
+            valor7.innerHTML = `${trinta}`
+            div_30.style.display = 'block'
+            
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+            
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+
+        } else if (perda <= 30 && perda > 25) {
+           
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+
+            valor4.innerHTML = `${quinze}`
+            div_15.style.display = 'block'
+
+            valor5.innerHTML = `${vinte}`
+            div_20.style.display = 'block'
+
+            valor6.innerHTML = `${vinteCinco}`
+            div_25.style.display = 'block'
+            
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_30.style.display = 'none'
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+
+        } else if (perda <= 25 && perda > 20) {
+           
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+
+            valor4.innerHTML = `${quinze}`
+            div_15.style.display = 'block'
+
+            valor5.innerHTML = `${vinte}`
+            div_20.style.display = 'block'
+            
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_25.style.display = 'none'
+            div_30.style.display = 'none'
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+
+        } else if (perda <= 20 && perda > 15) {
+                      
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+
+            valor4.innerHTML = `${quinze}`
+            div_15.style.display = 'block'
+            
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_20.style.display = 'none'
+            div_25.style.display = 'none'
+            div_30.style.display = 'none'
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+
+        } else if (perda <= 15 && perda > 10) {
+                     
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valor3.innerHTML = `${dez}`
+            div_10.style.display = 'block'
+            
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_15.style.display = 'none'
+            div_20.style.display = 'none'
+            div_25.style.display = 'none'
+            div_30.style.display = 'none'
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+            
+        } else if (perda <= 10 && perda > 5) {
+                                
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+
+            valor2.innerHTML = `${cinco}`
+            div_5.style.display = 'block'
+
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_10.style.display = 'none'
+            div_15.style.display = 'none'
+            div_20.style.display = 'none'
+            div_25.style.display = 'none'
+            div_30.style.display = 'none'
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+
+        }  else if (perda <= 5 && perda > 1) {
+                                           
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valor1.innerHTML = `${um}`
+            div_1.style.display = 'block'
+            
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_5.style.display = 'none'
+            div_10.style.display = 'none'
+            div_15.style.display = 'none'
+            div_20.style.display = 'none'
+            div_25.style.display = 'none'
+            div_30.style.display = 'none'
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+
+        }  else if (perda <= 1 && perda > 0) {
+            
+                                                       
+            totalPerdido.innerHTML = `${valor}`
+            div_resultPerda.style.display = 'block'
+
+            valorTotal.innerHTML = `${tudo}`
+            div_tudo.style.display = 'block'
+
+            div_1.style.display = 'none'
+            div_5.style.display = 'none'
+            div_10.style.display = 'none'
+            div_15.style.display = 'none'
+            div_20.style.display = 'none'
+            div_25.style.display = 'none'
+            div_30.style.display = 'none'
+            div_35.style.display = 'none'
+            div_40.style.display = 'none'
+            div_45.style.display = 'none'
+            div_50.style.display = 'none'
+    }
+    }
+</script>
