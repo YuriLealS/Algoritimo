@@ -49,6 +49,9 @@
             alert('ERRO - Com esse volume de Morangos não dá para abrir as vendas')
         }else if (qtd > 2000) {
             alert('AVISO – Tudo isso!!! Verificar se a quantidade está correta')
+            qtdMorangos = qtdMorangos + qtd   
+            div_1.style.display = 'none'
+            div_2.style.display = 'block'
         }else{
             
             qtdMorangos = qtdMorangos + qtd   
@@ -109,7 +112,7 @@
                 maxValor = ganho
             }if (venda <= qtdMorangos) {
                 qtdMorangos = qtdMorangos - venda
-                resultado.innerHTML += `Com a venda de ${venda} de caixas de Morango o saldo no restante é de ${qtdMorangos} <br>`
+                resultado.innerHTML += `Com a venda de ${venda.toFixed(1)} de caixas de Morango o saldo no restante é de ${qtdMorangos} <br>`
                 qtdVendas = qtdVendas + venda
                 faturado = faturado + ganho
             }

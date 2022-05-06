@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex8</title>
+</head>
+<body>
+    <!-- Receba o limite inferior da amostragem. Esse número que ser maior que 1, caso contrário emitir mensagem explicativa e não seguir em frente. 
+    Receba o limite superior da amostragem. Esse número que ser menor que 100, caso contrário emitir mensagem explicativa e não seguir em frente
+    Tenha num botão "Contar" que quando clicado exiba todos os números desde o limite inferior (item a.) até o limite superior (item b.) -->
+
+    Informe o limite inferior da amostragem: <input type="number" id="ipt_min" placeholder="Maior que 1"> <br><br>    
+    Informe o limite superior da amostragem: <input type="number" id="ipt_max" placeholder="Menor que 100"> <br><br>
+    <button onclick="contar()">Contar</button> <br><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var min = Number(ipt_min.value)
+        var max = Number(ipt_max.value)
+
+        if (min < max && min > 1 && max < 100) {
+           for (var minMenos = min - 1 ; minMenos < max; minMenos++) {
+            mostrar.innerHTML += `${minMenos} <br>`
+        } 
+        }else {
+            alert('Número inserido errado')
+        }
+        
+    }
+</script>

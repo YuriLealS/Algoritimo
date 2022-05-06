@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex7</title>
+</head>
+<body>
+    <!-- Receba o limite superior da amostragem. Esse número que ser menor que 100, caso contrário emitir mensagem explicativa e não seguir em frente. 
+    Tenha num botão "Contar" que quando clicado exiba os números de 5 até o limite informado no item a), um embaixo do outro -->
+
+    Informe o limite superior de amostragem: <input type="number" placeholder="Maior ou igual a 100" id="ipt_num"> <br><br>
+    <button onclick="contar()">Contar</button><br><br>
+    <div id="mostrar"></div>
+
+</body>
+</html>
+
+<script>
+    function contar() {
+        var num = Number(ipt_num.value)
+        if (num >= 100) {
+            for (var contador = 5; contador <= num; contador++) {  
+            mostrar.innerHTML += `${contador}<br>`
+            }  
+        }else {
+            alert ('Informe um número maior que 100')
+            mostrar.innerHTML = ``
+        }
+
+    }
+</script>
