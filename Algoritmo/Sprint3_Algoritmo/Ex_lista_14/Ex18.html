@@ -8,7 +8,6 @@
 </head>
 <body>
     Quantos passageiros terão? <input type="text" id="ipt_qtdPassageiros"> <br><br>
-    Quantos passageiros cabem? <input type="text" id="ipt_qtdCabem"> <br><br>
     <button onclick="partir()">#Partiu Carona</button> <br><br>
     <div id="div_entrar"></div>
 </body>
@@ -17,14 +16,13 @@
 <script>
     function partir() {
         var qtd = Number(ipt_qtdPassageiros.value)
-        var qtdCabem = Number(ipt_qtdCabem.value)
         div_entrar.innerHTML = ''
         for (var contador = 1; contador <= qtd ; contador++) {
             if (contador == 1) {
                 div_entrar.innerHTML += `Entrou o ${contador}º passageiro (que é o(a) motorista)<br>` ;
-            }if (contador >1 && contador <= qtdCabem) {
+            }if (contador >1 && contador <= 5) {
                 div_entrar.innerHTML += `Entrou o ${contador}º passageiro<br>`;
-            }if (contador <= qtd && contador > qtdCabem) {
+            }if (contador <= qtd && contador > 5) {
                 div_entrar.innerHTML += `O ${contador}º passageiro terá que esperar!<br>`;
             }    
             

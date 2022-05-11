@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex20</title>
+</head>
+<body>
+    Quantos Ônibus você precisa pegar? <input type="text" id="ipt_qtdOnibus"><br><br>
+    Quantos Trens você precisa pegar? <input type="text" id="ipt_qtdTrens"><br><br>
+    Quantos Metrôs você precisa pegar? <input type="text" id="ipt_qtdMetros"><br><br>
+    <button onclick="partir()">#Partiu Trajeto</button> <br><br>
+    <div id="div_busao"></div><br>
+    <div id="div_trem"></div><br>
+    <div id="div_metro"></div>
+</body>
+</html>
+
+<script>
+    function partir() {
+        var busao = Number(ipt_qtdOnibus.value)
+        var trem = Number(ipt_qtdTrens.value)
+        var metro = Number(ipt_qtdMetros.value)
+        var total = busao + trem + metro
+
+        div_busao.innerHTML=''
+        div_trem.innerHTML=''
+        div_metro.innerHTML=''
+
+        for (var contador = 1; contador <= total; contador++) {
+            if (contador <= busao) {
+                div_busao.innerHTML += `Pegando o ${contador}º busão<br>`
+                div_busao.style.color = 'red'
+            }
+            if (contador <= trem ) {
+                div_trem.innerHTML += `Pegando o ${contador}º trem<br>`
+                div_trem.style.color = 'green'
+            }
+            if (contador <= metro ) {
+                div_metro.innerHTML += `Pegando o ${contador}º metrô<br>`
+                div_metro.style.color = 'blue'
+            }
+        }
+    }
+</script>
