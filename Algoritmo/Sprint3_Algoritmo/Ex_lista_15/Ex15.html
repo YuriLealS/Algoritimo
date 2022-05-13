@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex15</title>
+</head>
+<body>
+        Informe quantos depósitos você fez no banco: <input type="text" id="ipt_qtdDep"><br><br>
+        Informe o valor que você depositou: <input type="text" id="ipt_valor"><br><br>
+        <button onclick="acompanhar()">Acompanhar grana</button><br><br>
+        <div id="mostrar"></div>
+        <div id="total"></div>
+
+</body>
+</html>
+
+<script>
+        var total = 0
+    function acompanhar() {
+        var vezes = Number(ipt_qtdDep.value)
+        var valor = Number(ipt_valor.value)
+        var depositado = valor * vezes
+
+        for (var contador = 1; contador <= vezes; contador++) {
+            if (contador %3 == 0) {
+                total = (total + valor) * 1.01
+                mostrar.innerHTML += `${contador}º Mês: R$${(total).toFixed(2)}<br>`
+            } 
+            else {
+            total += valor
+            mostrar.innerHTML += `${contador}º Mês: R$${(total).toFixed(2)}<br>`
+            }
+        }
+    }
+</script>

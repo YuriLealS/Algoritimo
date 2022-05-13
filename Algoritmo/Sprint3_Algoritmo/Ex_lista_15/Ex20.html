@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex20</title>
+</head>
+<body>
+        <button onclick="ver()">Curto 3 e 5</button><br>
+        <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+
+    function ver() {
+        
+        var validacao3 = false
+        var validacao5 = false
+        var validacao35 = false
+
+        for (var contador = 1; contador < 100; contador++) {
+            if (contador %5 == 0 && contador %3 == 0) {
+                validacao35 = true
+                mostrar.innerHTML += `É TRI, É PENTA<br>`
+            }
+            else if (contador %3 == 0 ) {
+                validacao3 = true
+                mostrar.innerHTML += `É TRI <br>`
+            }
+            else if (contador %5 == 0) {
+                validacao5 = true
+                mostrar.innerHTML += `É PENTA <br>`
+            }else{
+                mostrar.innerHTML += `${contador}<br>`
+            }
+           
+            
+        }
+    }
+</script>

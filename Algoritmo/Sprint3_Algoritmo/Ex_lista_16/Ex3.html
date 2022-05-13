@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+</head>
+<body>
+    Informe os bairros que já morou: <input type="text" id="ipt_bairros"> 
+    <button onclick="cadastrar()">Cadastrar Bairro</button><br><br>
+    Qual bairro você quer relembrar? <input type="number" id="ipt_num"> 
+    <button onclick="relembrar()">Relembrar moradia</button> <span id="mostrar"></span> 
+</body>
+</html>
+
+<script>
+    var vt_bairros = []
+    var contador = 0
+
+    function cadastrar() {
+        var bairro = ipt_bairros.value
+        vt_bairros.push(bairro)
+        ipt_bairros.value = ''
+        contador++
+    }
+
+    function relembrar() {
+        var num = Number(ipt_num.value)
+        if (num > contador || num <= 0) {
+            mostrar.innerHTML = `Você ainda não morou num ${num}º bairro`
+        } else{
+            mostrar.innerHTML = `O ${num}º bairro foi ${vt_bairros[num - 1]}`
+        }
+    }
+</script>
