@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex9</title>
+</head>
+<body>
+    Qual o nome de cada projeto que você já criou: <input type="text" id="ipt_projeto">
+    <button onclick="registrar()">Registrar projeto</button>
+    <button onclick="ver()">Mostrar projetos</button><br><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    vt_projetos = []
+    contador = 0
+    
+    function registrar() {
+        var projeto = ipt_projeto.value
+        vt_projetos.push(projeto)
+        ipt_projeto.value = ''
+        contador++
+        if (contador <= 4) {
+            mostrar.innerHTML = `${vt_projetos.length} é a quantidade de projetos e Júnior é seu nivel de experiência <br><br>`
+        } else if (contador >=5 && contador <=12) {
+            mostrar.innerHTML = `${vt_projetos.length} é a quantidade de projetos e Pleno é seu nivel de experiência desde o projeto ${vt_projetos[4]} <br><br>`
+        } else if (contador >= 13) {
+            mostrar.innerHTML = `${vt_projetos.length} é a quantidade de projetos e Sênior é seu nivel de experiência desde o projeto ${vt_projetos[12]}
+            <br><br>`
+        }
+    }
+
+    function ver() {
+        for (var i = vt_projetos.length -1; i > -1; i--) {
+            mostrar.innerHTML += `${vt_projetos[i]}<br>`  
+        }
+    }
+</script>
