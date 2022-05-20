@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+</head>
+<body>
+    Digite o nome de uma fruta: <input type="text" name="" id="ipt_fruta">
+    <button onclick="pesquisar()">Pesquisar</button> <br><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    var vt_frutas = ["abacaxi","morango","banana"]
+
+    function pesquisar() {
+        var fruta = ipt_fruta.value
+        var frutaV = fruta.toLowerCase()
+
+        if (vt_frutas.indexOf(frutaV) !== -1) {
+            mostrar.innerHTML = `A fruta ${frutaV} existe na lista`
+        } else{
+            mostrar.innerHTML = `A fruta ${frutaV} não existe na lista`
+        }
+    }
+</script>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorit</title>
+</head>
+<body>
+    <h1>Sorit</h1>
+        
+            Infome sua idade: <input type="text" id="ipt_idade">
+            <button onclick="cadastrar()">Cadastrar</button> <br><br>
+                <span id="mostrarIdadeInverso"></span>
+
+            <h2>Análise por intervalo de ocorrência</h2>
+
+            Informe o intervalo de ocorrências: <input type="text" id="ipt_menor" style="width: 20px;"> - <input type="text" id="ipt_maior" style="width: 20px;">
+            <button onclick="analisar()">Analisar Ocorrências</button> <br><br>
+                <span id="mostrarIntervalo"></span>
+
+            <h2>Análise por intervalo de idades</h2>
+            Informe o intervalo de idades:<input type="text" id="ipt_idadeMenor" style="width: 20px;"> - <input type="text" id="ipt_idadeMaior" style="width: 20px;">
+            <button onclick="analisarIdades()">Analisar Idades</button> <br><br>
+        
+</body>
+</html>
+
+<script>
+    
+    var vt_idade = []
+    var contador = 0
+    var maiorIdade = 0
+    var menorIdade = 81
+
+    var contadorIdade = 0
+    var maiorIdadept2 = 0
+    var menorIdadept2 = 81
+
+    function cadastrar() {
+        var num = Number(ipt_idade.value)
+
+        mostrarIdadeInverso.innerHTML = ''
+
+        if (num < 18) {
+            alert('Idade inferior à permitida')
+            ipt_idade.value = ''
+        } else if (num >= 65 && num <= 80) {
+            alert('Associação permitida, mas com restrição')
+            ipt_idade.value = ''
+            vt_idade.push(num)
+            contador++
+
+            if (maiorIdade < num) {
+                maiorIdade = num
+            } else{
+                
+            }
+            if (menorIdade > num) {
+                menorIdade = num
+            } else{
+
+            }
+
+        } else if (num > 80) {
+            alert ('Idade superior à permitida')
+            ipt_idade.value = ''
+        } else{
+            vt_idade.push(num)
+            ipt_idade.value = ''
+            contador++
+
+            if (maiorIdade < num) {
+                maiorIdade = num
+            } else{
+                
+            }
+            if (menorIdade > num) {
+                menorIdade = num
+            } else{
+
+            }
+        }
+
+        for (var i = vt_idade.length; i > -1; i--) {
+            if (vt_idade.indexOf(vt_idade[i - 1]) == -1) {
+                
+            } else{
+            mostrarIdadeInverso.innerHTML += `${vt_idade[i -1]} <br>`
+            }
+            
+        }
+    }
+    
+    function analisar() {
+        var menor = Number(ipt_menor.value)
+        var maior = Number(ipt_maior.value)
+        var soma = 0
+
+        if (vt_idade.length == 0) {
+            alert('Antes de Analisar faça o cadastro das idades')
+        } else if (menor >= maior) {
+            alert('Informar o intervalo de ocorrências corretamente')
+        } else if (menor <= 0) {
+            alert('Informar intervalo com valor maior que 0')
+        } else{
+            if (maior > vt_idade.length) {
+                alert(`Não tem a ${maior}º idade`)
+            }else{
+                for (var i = 0; i < vt_idade.length; i++) {
+                soma = vt_idade[i] + soma
+                }
+                    mostrarIntervalo.innerHTML = `
+                    Inicial:${vt_idade[0]} Final:${vt_idade[vt_idade.length - 1]} <br>
+                    <b>Resumo do intervalo de ocorrências</b> <br>
+                    Menor Idade do intervalo: ${menorIdade} <br>
+                    Maior Idade do intervalo: ${maiorIdade} <br>
+                    Qtde de idades cadastradas no intervalo: ${contador} <br>
+                    Média das idades do intervalo: ${(soma / contador).toFixed(1)} <br>`
+            }
+            
+        }
+    }
+
+    function analisarIdades() {
+        var menorIdade = Number(ipt_menor.value)
+        var maiorIdade = Number(ipt_maior.value)
+
+        if (vt_idade.length == 0) {
+            alert('Antes de Analisar faça o cadastro das idades')
+        } else if (menorIdade >= maiorIdade) {
+            alert('Informar o intervalo de ocorrências corretamente')
+        } else{
+                    mostrarIntervalo.innerHTML = `
+                    Inicial:${vt_idade[menorIdade - 1]} Final:${vt_idade[maiorIdade - 1]} <br>
+                    <b>Resumo do intervalo de idades</b> <br>
+                   `
+            }
+            
+        }
+
+
+</script>

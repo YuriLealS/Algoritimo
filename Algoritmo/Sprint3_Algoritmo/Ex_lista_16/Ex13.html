@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex13</title>
+</head>
+<body>
+    <select id="sel_partida">
+        <option value="">Indique o resultado</option>
+        <option value="3">Vitória</option>
+        <option value="1">Empate</option>
+        <option value="0">Derrota</option>
+    </select>
+    <button onclick="registrar()">Registrar Jogo</button>
+    Quer saber o resultado de qual jogo? <input type="text" name="" id="ipt_num" onkeyup="pt()"><br><br>
+    <div id="mostrar"></div>
+    <div id="mostrarJogo"></div>
+</body>
+</html>
+
+<script>
+    var vt_partidas = []
+    var vt_resultado = []
+    var soma = 0
+    var v = 0
+    var e = 0
+    var d = 0
+    var qtd = 0
+
+    function registrar() {
+        var resultado = Number(sel_partida.value)
+        if (resultado == 3) {
+            soma = soma + 3
+            vt_partidas.push(3)
+            vt_resultado.push("ganhou")
+            v++
+            qtd++
+        } else if (resultado == 1) {
+            soma++
+            vt_partidas.push(1)
+            vt_resultado.push("empatou")
+            e++
+            qtd++
+        } else{
+            vt_partidas.push(0)
+            vt_resultado.push("perdeu")
+            d++
+            qtd++
+        }
+
+        mostrar.innerHTML = `
+      O time teve: ${v} vitórias, ${e} empates, ${d} derrotas <br>
+      Pontuação total: ${soma} pontos <br>
+      Aproveitamento: ${((soma/(qtd*3)*100)).toFixed(0)}% <br>`
+    }
+
+    function pt() {
+        var num  = Number(ipt_num.value)
+        
+        for (var i = 0; i < vt_partidas.length; i++) {
+
+            if (vt_partidas.indexOf(num) !== -1) {
+              mostrarJogo.innerHTML = `No ${num}º jogo, o time ${vt_resultado[i-1]}`  
+            }
+            
+        }
+    }
+
+</script>
