@@ -22,6 +22,8 @@
             <h2>Análise por intervalo de idades</h2>
             Informe o intervalo de idades:<input type="text" id="ipt_idadeMenor" style="width: 20px;"> - <input type="text" id="ipt_idadeMaior" style="width: 20px;">
             <button onclick="analisarIdades()">Analisar Idades</button> <br><br>
+                <span id="mostrarIntervalopt2"></span>
+
         
 </body>
 </html>
@@ -29,11 +31,11 @@
 <script>
     
     var vt_idade = []
-    var contador = 0
+    var vt_idade2 = []
+
     var maiorIdade = 0
     var menorIdade = 81
 
-    var contadorIdade = 0
     var maiorIdadept2 = 0
     var menorIdadept2 = 81
 
@@ -49,18 +51,6 @@
             alert('Associação permitida, mas com restrição')
             ipt_idade.value = ''
             vt_idade.push(num)
-            contador++
-
-            if (maiorIdade < num) {
-                maiorIdade = num
-            } else{
-                
-            }
-            if (menorIdade > num) {
-                menorIdade = num
-            } else{
-
-            }
 
         } else if (num > 80) {
             alert ('Idade superior à permitida')
@@ -68,18 +58,6 @@
         } else{
             vt_idade.push(num)
             ipt_idade.value = ''
-            contador++
-
-            if (maiorIdade < num) {
-                maiorIdade = num
-            } else{
-                
-            }
-            if (menorIdade > num) {
-                menorIdade = num
-            } else{
-
-            }
         }
 
         for (var i = vt_idade.length; i > -1; i--) {
@@ -96,6 +74,8 @@
         var menor = Number(ipt_menor.value)
         var maior = Number(ipt_maior.value)
         var soma = 0
+        var contador = 0
+
 
         if (vt_idade.length == 0) {
             alert('Antes de Analisar faça o cadastro das idades')
@@ -107,11 +87,23 @@
             if (maior > vt_idade.length) {
                 alert(`Não tem a ${maior}º idade`)
             }else{
-                for (var i = 0; i < vt_idade.length; i++) {
+                for (var i = menor - 1; i < maior; i++) {
                 soma = vt_idade[i] + soma
+                contador++
+
+                if (maiorIdade < vt_idade[i]) {
+                maiorIdade = vt_idade[i]
+                } else{
+                    
+                }
+                if (menorIdade > vt_idade[i]) {
+                    menorIdade = vt_idade[i]
+                } else{
+
+            }
                 }
                     mostrarIntervalo.innerHTML = `
-                    Inicial:${vt_idade[0]} Final:${vt_idade[vt_idade.length - 1]} <br>
+                    Inicial:${vt_idade[menor - 1]} Final:${vt_idade[maior - 1]} <br>
                     <b>Resumo do intervalo de ocorrências</b> <br>
                     Menor Idade do intervalo: ${menorIdade} <br>
                     Maior Idade do intervalo: ${maiorIdade} <br>
@@ -123,19 +115,56 @@
     }
 
     function analisarIdades() {
-        var menorIdade = Number(ipt_menor.value)
-        var maiorIdade = Number(ipt_maior.value)
+        var idadeMenor = Number(ipt_idadeMenor.value)
+        var idadeMaior = Number(ipt_idadeMaior.value)
+        var soma = 0
+        var contadorIdade = 0
+        var qtd = 0
+
 
         if (vt_idade.length == 0) {
             alert('Antes de Analisar faça o cadastro das idades')
-        } else if (menorIdade >= maiorIdade) {
+        } else if (idadeMenor >= idadeMaior) {
             alert('Informar o intervalo de ocorrências corretamente')
+        } else if (idadeMenor <= 0) {
+            alert('Informar intervalo com valor maior que 0')
         } else{
-                    mostrarIntervalo.innerHTML = `
-                    Inicial:${vt_idade[menorIdade - 1]} Final:${vt_idade[maiorIdade - 1]} <br>
-                    <b>Resumo do intervalo de idades</b> <br>
-                   `
+            if (idadeMaior > 10000) {
+                alert(`Não tem a ${idadeMaior}º idade`)
+            }else{
+                for (var i = idadeMenor - 1; i < idadeMaior; i++) {
+                soma = vt_idade[i] + soma
+                contadorIdade++
+
+                if (maiorIdadept2 < vt_idade[i]) {
+                maiorIdadept2 = vt_idade[i]
+                } else{
+                    
+                }
+                if (menorIdadept2 > vt_idade[i]) {
+                    menorIdadept2 = vt_idade[i]
+                } else{
+
             }
+                for (var i2 = idadeMenor; i2 < idadeMaior; i2++) {
+                    if (i2 == vt_idade.indexOf(i2)) {
+                        vt_idade2.push(vt_idade.indexOf(i2))
+                        vt_idade2[qtd] = vt_idade.indexOf(i2)
+                        qtd++
+                    }
+                    
+                }
+                }
+                    mostrarIntervalopt2.innerHTML = `
+                    Inicial:${vt_idade[idadeMenor - 1]} Final:${vt_idade[idadeMaior - 1]} <br>
+                    <b>Resumo do intervalo de ocorrências</b> <br>
+                    Menor Idade do intervalo: ${menorIdadept2} <br>
+                    Maior Idade do intervalo: ${maiorIdadept2} <br>
+                    Qtde de idades cadastradas no intervalo: ${contadorIdade} <br>
+                    Média das idades do intervalo: ${(soma / contadorIdade).toFixed(1)} <br>`
+            }
+            
+        }
             
         }
 
