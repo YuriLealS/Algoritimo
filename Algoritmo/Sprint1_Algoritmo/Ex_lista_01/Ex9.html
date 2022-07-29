@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 9</title>
+</head>
+<body>
+  <h3>sinal</h3>  
+    <span> aperte aqui! </span>
+    <button onclick=" pare()" style="background-color:rgb(248, 11, 11);"> pare </button>
+    <button onclick="pense()" style="background-color: rgb(238, 241, 7);"> pense</button>
+    <button onclick=" siga()" style="background-color: rgb(8, 243, 27);">siga</button>
+    <br><br>
+    <div id="mostrar"></div>
+    
+</body>
+</html>
+<script>
+function pare() {
+mostrar.innerHTML = 'Pare e aguarde!'
+}
+function pense() {
+    mostrar.innerHTML = 'Pense se deve seguir ou se deve parar!'
+}
+function siga() {
+    mostrar.innerHTML = 'Pode seguir a diante :)'
+}
+</script>
